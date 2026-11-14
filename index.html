@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>光伏出口跟踪｜东吴电新</title><meta name="description" content="光伏产业链出口量价、区域结构与主要市场月度跟踪。"><link rel="stylesheet" href="./assets/style.css"></head>
+<body>
+<aside class="sidebar"><a class="brand" href="#" aria-label="光伏出口跟踪首页"><span class="brand-icon">PV</span><span>东吴电新<small>光伏研究数据库</small></span></a>
+<div class="nav-label">产业链观察</div>
+<nav aria-label="主导航"><button class="nav-item active" data-view="overview"><span>01</span>行业总览</button><button class="nav-item" data-view="markets"><span>02</span>环节与市场</button><button class="nav-item" data-view="sources"><span>03</span>数据与口径</button></nav>
+<div class="sidebar-note"><span class="tiny-line"></span><p>从量价变化<br>到海外需求结构</p><small>硅料进口 / 硅片出口<br>组件 / 电池 / 光伏玻璃</small></div>
+<div class="sidebar-bottom">MONTHLY MONITOR<small id="sidePeriod">正在读取数据</small></div></aside>
+<div class="shell"><header class="topbar"><div class="breadcrumb">新能源研究<span>/</span>光伏<span>/</span><b id="viewLabel">行业总览</b></div><div class="top-actions"><span class="live-dot"></span><span id="dataStatus" role="status">读取中</span><button id="repoBtn" class="text-button">GitHub文件 ↗</button></div></header>
+<main>
+<section class="page-heading"><div><div class="eyebrow">SOLAR EXPORT MONITOR</div><h1>光伏出口跟踪</h1><p>先看总量与价格，再看区域与市场的变化。</p></div><div class="report-badge"><span>数据截至</span><strong id="reportMonth">—</strong><small>月度跟踪 · 五个环节</small></div></section>
+<div id="errorBox" role="alert" class="error-box" hidden></div>
+<section class="toolbar" aria-label="筛选条件"><div class="date-control"><span class="control-label">观察月份</span><button id="prevMonth" aria-label="上一个月">‹</button><select id="monthSelect" aria-label="观察月份"></select><button id="nextMonth" aria-label="下一个月">›</button></div><div class="segmented" id="periodMode" aria-label="统计区间"><button data-mode="month" class="selected" aria-pressed="true">当月</button><button data-mode="ytd" aria-pressed="false">年内累计</button></div><div class="toolbar-tail"><button id="latestBtn" class="subtle-button">回到最新</button><button id="exportBtn" class="outline-button">导出当前数据 ↓</button></div></section>
+<div id="loading" class="loading">正在载入产业链月度数据…</div>
+<div id="content" hidden>
+<section id="overview" class="view">
+<div class="section-head"><h2>产业链一览</h2><span id="periodCaption"></span></div>
+<div id="kpis" class="kpi-grid"></div>
+<div class="insight-strip"><div class="insight-label"><span>本期观察</span><small>基于原始数据计算</small></div><div id="insights" class="insight-items"></div></div>
+<div class="section-head"><h2>总量与价格</h2><div class="segmented compact range-control"><button data-range="12">近12月</button><button data-range="24" class="selected">近24月</button><button data-range="all">全部</button></div></div>
+<div class="chart-grid"><article class="panel"><div class="panel-head"><div><h3>出口规模趋势</h3><p>组件 / 电池 / 硅片 · GW · 月度</p></div><button class="source-button" data-source="monthly">数据来源 ↗</button></div><div id="volumeChart" class="chart" aria-label="出口规模趋势图"></div></article><article class="panel"><div class="panel-head"><div><h3>出口价格趋势</h3><p>组件 / 电池 · 美元/W · 月度报告均价</p></div><button class="source-button" data-source="monthly">数据来源 ↗</button></div><div id="priceChart" class="chart" aria-label="出口价格趋势图"></div></article></div>
+<article class="panel region-panel"><div class="panel-head"><div><h3>组件出口区域结构</h3><p>六大区域全量汇总 · 月度</p></div><div class="panel-actions"><div id="regionMode" class="segmented compact"><button data-region="volume" class="selected">规模</button><button data-region="share">占比</button></div><button class="source-button" data-source="regions">数据来源 ↗</button></div></div><div class="region-layout"><div id="regionChart" class="chart"></div><div id="regionSummary" class="region-summary"></div></div></article>
+</section>
+<section id="markets" class="view" hidden>
+<div class="section-head"><h2>环节与市场</h2><span>数量、价格与目的地联动查看</span></div>
+<div class="sector-tabs" role="group" aria-label="选择产业链环节"><button data-sector="zujian" class="active">组件</button><button data-sector="dianchi">电池</button><button data-sector="guipian">硅片</button><button data-sector="guiliao">硅料进口</button><button data-sector="boli">光伏玻璃</button></div>
+<div id="sectorStats" class="sector-stats"></div>
+<div class="chart-grid"><article class="panel"><div class="panel-head"><div><h3 id="sectorTrendTitle">量价走势</h3><p id="sectorTrendDesc"></p></div><button class="source-button" data-source="monthly">数据来源 ↗</button></div><div id="sectorChart" class="chart"></div></article><article class="panel"><div class="panel-head"><div><h3 id="rankTitle">主要出口市场</h3><p id="rankDesc"></p></div><button class="source-button" id="rankSource" data-source="countries">数据来源 ↗</button></div><div id="rankChart" class="chart"></div></article></div>
+<article class="panel" id="countryPanel"><div class="panel-head"><div><h3>分市场明细</h3><p id="tableDesc">占比以行业总量为分母</p></div><label class="search"><span>搜索</span><input id="countrySearch" type="search" placeholder="国家或地区" aria-label="搜索国家或地区"></label></div><div class="table-scroll"><table><thead id="countryHead"></thead><tbody id="countryBody"></tbody></table></div><div class="table-footer"><span id="coverageNote"></span><span>—表示无数据或不可比</span></div></article>
+<article class="panel" id="countryTrendPanel"><div class="panel-head"><div><h3>主要市场历史走势</h3><p>所选区间排名前六市场 · 点击图例可筛选 · 缺失月份不连线</p></div></div><div id="countryTrendChart" class="chart"></div></article>
+</section>
+<section id="sources" class="view" hidden><div class="section-head"><h2>数据与口径</h2><span id="buildDate"></span></div>
+<article class="panel source-intro"><div class="eyebrow">DATA PROVENANCE</div><h3>每个图表，都能找到对应的数据文件。</h3><p>页面从同仓库的data/dashboard.json读取数据，该文件由下列CSV生成。CSV可以用Excel打开；提交更新后，GitHub Actions将校验并发布。</p><div class="source-origin"><span>原报告</span><strong id="originalWorkbook"></strong><p id="sourceStatus"></p></div></article>
+<article class="panel"><div class="panel-head"><div><h3>图表与仓库文件对应关系</h3><p>原Excel的sheet名称仅列出HTML明确注明的部分</p></div></div><div class="table-scroll"><table class="source-table"><thead><tr><th>页面内容</th><th>仓库文件</th><th>关键字段</th><th>原Excel线索</th></tr></thead><tbody>
+<tr><td>五环节KPI、总量与量价趋势</td><td><a href="./data/monthly.csv" download>monthly.csv ↓</a></td><td>series / month / volume / amount_usd_mn / price</td><td>玻璃出口数据；其他sheet名待核验</td></tr>
+<tr><td>分市场排名、明细、历史走势</td><td><a href="./data/countries.csv" download>countries.csv ↓</a></td><td>series / month / country / volume</td><td>组件国家历史；其余sheet名待核验</td></tr>
+<tr><td>组件六大区域结构</td><td><a href="./data/regions.csv" download>regions.csv ↓</a></td><td>month / region / volume_mw</td><td>组件国家历史（区域汇总行）</td></tr>
+<tr><td>硅料累计进口来源地</td><td><a href="./data/silicon_suppliers.csv" download>silicon_suppliers.csv ↓</a></td><td>period_start / period_end / country / amount_usd_mn</td><td>硅料年度累计数据块</td></tr>
+<tr><td>报告月份、来源与说明</td><td><a href="./data/config.json" download>config.json ↓</a></td><td>report_month / data_provider / notes</td><td>报告元信息</td></tr></tbody></table></div></article>
+<div class="chart-grid"><article class="panel"><div class="panel-head"><h3>统计口径</h3></div><ul class="notes"><li>当月同比=当月值/去年同月值−1；环比=当月值/上月值−1。分母为0或缺失时显示“—”。</li><li>年内累计须具备1月至观察月的全部记录；同比比较上一年同区间。缺项不按0填补。</li><li>累计均价=累计金额/累计数量，任何月份金额或数量缺失则不显示。月度均价保留报告原值。</li><li>分市场占比=该市场规模/同期行业总量，不以TOP市场合计为分母。</li><li>MW÷1000=GW；㎡÷10000=万㎡；M$=百万美元。不同环节数量不加总。</li></ul></article><article class="panel"><div class="panel-head"><h3>已知数据限制</h3></div><ul id="qualityNotes" class="notes"></ul></article></div>
+</section>
+<footer><span>数据来源：盖锡咨询 · 原HTML内嵌数据</span><span>东吴电新｜光伏产业链月度跟踪</span></footer>
+</div></main></div>
+<dialog id="sourceDialog"><div class="dialog-head"><h2 id="dialogTitle">数据来源</h2><button id="closeDialog" aria-label="关闭数据来源">×</button></div><div id="dialogContent"></div></dialog>
+<script src="./assets/echarts.min.js"></script><script src="./assets/app.js"></script></body></html>

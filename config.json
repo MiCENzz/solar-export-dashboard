@@ -1,0 +1,38 @@
+{
+  "title": "光伏出口跟踪",
+  "report_month": "202609",
+  "original_workbook": "202609月产业链出口报告分析.xlsx",
+  "original_html": "【东吴电新】光伏出口数据分析202609.html",
+  "data_provider": "盖锡咨询",
+  "prepared_date": "2026-11-14",
+  "repository": "https://github.com/MiCENzz/solar-export-dashboard",
+  "source_status": "数据由原HTML内嵌序列提取；原Excel未独立复核。",
+  "notes": [
+    "硅料为进口，其余环节为出口；数量不能简单相加。",
+    "组件、电池均价保留原报告值；量价变化不直接等同于盈利变化。",
+    "同比与环比由原始序列按对应年月重算，不使用源表涨跌幅列。",
+    "分国家仅覆盖主要市场，新增补充国家没有历史数据；占比以行业总量为分母。",
+    "硅料来源地为2026年1—9月累计，固定展示；玻璃来源表的年度TOP20重复问题不采用。",
+    "2025年7月组件出口金额缺失；2023年1月电池报告均价与金额/量存在差异。",
+    "HTML称玻璃为2026年新增监测，但内嵌数量序列实际始于2024年1月，页面以实际可用日期展示。"
+  ],
+  "source_sheets": {
+    "guiliao": {
+      "status": "未独立核验sheet名"
+    },
+    "guipian": {
+      "status": "未独立核验sheet名"
+    },
+    "zujian": {
+      "history": "组件国家历史",
+      "status": "sheet名称来自原HTML说明"
+    },
+    "dianchi": {
+      "status": "未独立核验sheet名"
+    },
+    "boli": {
+      "monthly": "玻璃出口数据",
+      "status": "sheet名称来自原HTML说明"
+    }
+  }
+}
